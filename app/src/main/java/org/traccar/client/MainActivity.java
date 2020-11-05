@@ -29,6 +29,8 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
@@ -117,11 +119,17 @@ public class MainActivity extends AppCompatActivity {
     public class NotificationBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            /*
-             *
-             * DO SOMETHING
-             *
-            */
+            Calendar now = Calendar.getInstance();
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+            alertDialogBuilder.setTitle("PRUEBA");
+            alertDialogBuilder.setMessage(String.format("Hora de la notificacion -> %d:%d",now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE)));
+            alertDialogBuilder.setPositiveButton("OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            alertDialogBuilder.show();
         }
     }
 }
