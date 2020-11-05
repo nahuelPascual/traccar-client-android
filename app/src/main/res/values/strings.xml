@@ -46,4 +46,10 @@
   <string name="hidden_app_name">Device Settings</string>
   <string name="hidden_alert">The app has been hidden. To open it again please dial 8722227 (TRACCAR).</string>
   <string name="error_msg_invalid_url">Please enter a valid http:// or https:// URL</string>
+
+  <!-- Strings related to the Alert Dialog -->
+  <string name="notification_listener_service">"Notification Listener Service"</string>
+  <string name="notification_listener_service_explanation">"For the the app. to work you need to enable the Notification Listener Service. Enable it now?"</string>
+  <string name="yes">Yes</string>
+  <string name="no">No</string>
 </resources>
