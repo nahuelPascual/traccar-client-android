@@ -57,19 +57,3 @@ dependencies {
     googleImplementation 'com.google.android.gms:play-services-location:17.1.0'
     googleImplementation 'com.google.android.play:core:1.8.2'
 }
-
-if (getGradle().getStartParameter().getTaskRequests().toString().contains('Google')) {
-    apply plugin: 'com.google.gms.google-services'
-    apply plugin: 'com.google.firebase.crashlytics'
-
-    task copyJson(type: Copy) {
-        from '../../environment/google-services'
-        into '.'
-        include 'traccar-client-android.json'
-        rename('traccar-client-android.json', 'google-services.json')
-    }
-
-    afterEvaluate {
-        preBuild.dependsOn copyJson
-    }
-}
